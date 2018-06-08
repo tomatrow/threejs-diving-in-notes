@@ -1,8 +1,31 @@
 <html>
 <head>
     <title>Part 02: Basic Scene </title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
 
+    <canvas id="myCanvas"></canvas>
+    <script src="../three.js"></script>
+    <script>
+        // console.log(THREE);
+
+        // Docs @ https://threejs.org/docs/#api/renderers/WebGLRenderer
+        let renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById(('myCanvas')),
+            antialias: true
+        });
+
+        // I'm getting a '93' log out of the THREE.js library. The variable seems to be the *revision* number. Not sure what that is *exactly*. 
+
+        console.log(renderer);
+        // renderer.setClearColor()
+    </script>
 </body>
 </html>
