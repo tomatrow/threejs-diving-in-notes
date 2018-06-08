@@ -1,8 +1,41 @@
 <html>
 <head>
     <title>Part 02: Basic Scene </title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
 
+    <canvas id="myCanvas"></canvas>
+    <script src="../three.js"></script>
+    <script>
+
+        /// [`WebGLRenderer` docs](https://threejs.org/docs/#api/renderers/WebGLRenderer)
+        let renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById(('myCanvas')),
+            antialias: true
+        });
+        renderer.setClearColor(0x00ff00);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        let camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
+        let scene = new THREE.Scene();
+
+        let geometry = new THREE.BoxGeometry(100, 100, 100);
+        let material = new THREE.MeshBasicMaterial();
+        let mesh = new THREE.Mesh(geometry, material);
+        mesh.position.set(0, 0, -1000);
+
+        scene.add(mesh);
+
+        renderer.render(scene, camera);
+        // Note. I'm getting a '93' log out of the THREE.js library. The variable seems to be the *revision* number. Not sure what that is *exactly*.
+    </script>
 </body>
 </html>
